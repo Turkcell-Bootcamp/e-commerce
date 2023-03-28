@@ -1,5 +1,6 @@
 package com.example.ecommerce.entities;
 
+import com.example.ecommerce.entities.enums.Status;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -20,5 +21,6 @@ public class Product {
     private int quantity;
     private double unitPrice;
     private String description;
-
+    @Enumerated(EnumType.STRING)
+    private Status status;
 }

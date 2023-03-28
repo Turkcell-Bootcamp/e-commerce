@@ -3,7 +3,7 @@ package com.example.ecommerce.business.concretes;
 
 import com.example.ecommerce.business.abstracts.ProductService;
 import com.example.ecommerce.entities.Product;
-import com.example.ecommerce.repository.abstracts.ProductRepository;
+import com.example.ecommerce.repository.ProductRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
@@ -22,22 +22,26 @@ public class ProductManager  implements ProductService {
         return repository.findAll();
     }
 
+    @Override
     public Product getById(int id) {
         return repository.findById(id).orElseThrow();
     }
 
 
+    @Override
     public Product add(Product product) {
         validateProduct(product);
         return repository.save(product);
     }
 
+    @Override
     public Product update(int id, Product product) {
         validateProduct(product);
         return repository.save(product);
     }
 
 
+    @Override
     public void delete(int id) {
         repository.delete(repository.findById(id).orElseThrow());
     }
