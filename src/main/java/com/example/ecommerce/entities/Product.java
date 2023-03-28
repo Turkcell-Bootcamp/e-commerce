@@ -1,11 +1,15 @@
 package com.example.ecommerce.entities;
 
 import com.example.ecommerce.entities.enums.Status;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Setter
@@ -23,4 +27,7 @@ public class Product {
     private String description;
     @Enumerated(EnumType.STRING)
     private Status status;
+    @JsonManagedReference
+    @ManyToMany(fetch = FetchType.LAZY)
+    private Set<Category> categories = new HashSet<Category>();
 }
