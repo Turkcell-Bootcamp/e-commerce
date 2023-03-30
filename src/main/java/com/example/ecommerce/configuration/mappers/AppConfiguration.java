@@ -4,11 +4,11 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class ModelMapper {
+public class AppConfiguration {
 
 	@Bean
-	public ModelMapper modelMapper() {
+	public AppConfiguration modelMapper() {
 
-		return new ModelMapper();
+		return new AppConfiguration();
 	}
 }
