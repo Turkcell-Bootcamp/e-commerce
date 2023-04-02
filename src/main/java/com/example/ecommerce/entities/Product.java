@@ -18,16 +18,23 @@ import java.util.Set;
 @AllArgsConstructor
 @Table(name = "products")
 public class Product {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    private String name;
-    private int quantity;
-    private double unitPrice;
-    private String description;
-    @Enumerated(EnumType.STRING)
-    private Status status;
-    @JsonManagedReference
-    @ManyToMany(fetch = FetchType.LAZY)
-    private Set<Category> categories = new HashSet<Category>();
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
+
+	private String name;
+
+	private int quantity;
+
+	private double unitPrice;
+
+	private String description;
+
+	@Enumerated(EnumType.STRING)
+	private Status status;
+
+	@JsonManagedReference
+	@ManyToMany(fetch = FetchType.LAZY)
+	private Set<Category> categories = new HashSet<>();
 }

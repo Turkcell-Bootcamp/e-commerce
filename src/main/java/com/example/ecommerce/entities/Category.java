@@ -21,9 +21,10 @@ public class Category {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+
 	private String name;
 
 	@JsonBackReference
 	@ManyToMany(mappedBy = "categories", fetch = FetchType.LAZY)
-	private Set<Product> products = new HashSet<Product>();
+	private Set<Product> products = new HashSet<>();
 }
